@@ -1,0 +1,16 @@
+{
+    "product" :
+    [{
+          "Id":"1",
+          "Productname":"Blue Top"
+      },
+      {
+          "Id":"4",
+          "Productname":"Stylish Dress"
+      },
+      {
+          "Id":"8",
+          "Productname":"Fancy Green Top"
+      }
+  ]
+  } 

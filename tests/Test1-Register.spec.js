@@ -1,0 +1,47 @@
+ import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://automationexercise.com/');
+  await expect(page.getByRole('link', { name: ' Home' })).toBeVisible();
+  await page.getByRole('link', { name: ' Signup / Login' }).click();
+  await expect(page.getByRole('heading', { name: 'New User Signup!' })).toBeVisible();
+  await page.getByPlaceholder('Name').fill('Purna');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('purna5@gmail.com');
+  await page.getByRole('button', { name: 'Signup' }).click();
+  await page.getByLabel('Mr.').check();
+  await page.getByLabel('Password *').fill('Smile@369');
+  await page.locator('#days').selectOption('1');
+  await page.locator('#months').selectOption('1');
+  await page.locator('#form form div').filter({ hasText: 'Year 2021 2020 2019 2018 2017' }).nth(2).click();
+  await page.locator('#years').selectOption('2021');
+  await page.locator('#form form div').filter({ hasText: 'Sign up for our newsletter!' }).click();
+  await page.getByLabel('Receive special offers from').check();
+  await page.getByLabel('First name *').click();
+  await page.getByLabel('First name *').fill('Purnaa');
+  await page.getByLabel('First name *').press('Tab');
+  await page.getByLabel('Last name *').fill('chandra');
+  await page.getByLabel('Last name *').press('Tab');
+  await page.getByLabel('Company', { exact: true }).fill('EDS');
+  await page.getByLabel('Address * (Street address, P.').click();
+  await page.getByLabel('Address * (Street address, P.').fill('11 Tels');
+  await page.getByLabel('Address * (Street address, P.').press('Tab');
+  await page.getByLabel('Address 2').fill('123');
+  await page.getByLabel('State *').click();
+  await page.getByLabel('State *').fill('ap');
+  await page.getByLabel('City *').click();
+  await page.getByLabel('City *').fill('mtm');
+  await page.locator('#zipcode').click();
+  await page.locator('#zipcode').fill('123456');
+  await page.getByLabel('Mobile Number *').click();
+  await page.getByLabel('Mobile Number *').fill('112233445566');
+  await page.getByRole('button', { name: 'Create Account' }).click();
+  // await expect(page.getByText('Account Created!')).toBeVisible();
+  await page.getByRole('link', { name: 'Continue' }).click();
+  // await expect(page.getByText('Logged in as Purna')).toBeVisible();
+//   await page.getByRole('link', { name: ' Delete Account' }).click();
+//   // await expect(page.getByText('Account Deleted!')).toBeVisible();
+//   await page.getByRole('link', { name: 'Continue' }).click();
+//   // await expect(page.getByText('Home  Products Cart Signup')).toBeVisible();
+
+  //await page.pause();
+});
